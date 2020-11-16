@@ -1,4 +1,3 @@
-const greet = require('./greet')
+import getGreeting from './greet'
 
-console.log(greet)
-console.log('another')
+console.log(getGreeting('jayyson'))
