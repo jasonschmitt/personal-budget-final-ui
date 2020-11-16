@@ -1,0 +1,19 @@
+{
+  "name": "personal-budget-final-ui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jasonschmitt/personal-budget-final-ui.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jasonschmitt/personal-budget-final-ui/issues"
+  },
+  "homepage": "https://github.com/jasonschmitt/personal-budget-final-ui#readme"
+}
