@@ -1,9 +1,8 @@
 import React from 'react'
-import { hot } from 'react-hot-loader'
 import axios from 'axios'
-import Login from './components/login/login'
+import './login.css'
 
-class App extends React.Component {
+class Login extends React.Component {
   state = {
     count: 0,
   }
@@ -22,13 +21,17 @@ class App extends React.Component {
   }
 
   render() {
+    const { count } = this.state
     return (
       <div>
-        <Login />
+        <h1 className="test-green bigBorder">hello world!</h1>
+        <h2 className={count > 10 ? 'warning' : null}>Count: {count}</h2>
+        <button onClick={this.increment}>+</button>
+        <button onClick={this.decrement}>-</button>
+        <button onClick={this.getData}>get data</button>
       </div>
     )
   }
 }
 
-const hotFunction = hot(module)
-export default hotFunction(App)
+export default Login

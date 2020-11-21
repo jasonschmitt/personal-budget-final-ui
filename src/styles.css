@@ -2,6 +2,10 @@ body {
   border: 5px solid red;
 }
 
-.warning { 
+.warning {
   color: tomato;
+}
+
+.bigBorder {
+  border: 10px solid tomato;
 }
