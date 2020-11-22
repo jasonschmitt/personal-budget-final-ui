@@ -26,6 +26,9 @@ class Nav extends React.Component {
                 <a href="/login">Login</a>
               </li>
               <li>
+                <a href="/dashboard">Dashboard</a>
+              </li>
+              <li>
                 <a href="/signup">Sign Up</a>
               </li>
             </ul>

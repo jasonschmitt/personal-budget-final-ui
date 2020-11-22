@@ -18,6 +18,13 @@ class App extends React.Component {
     return this.setState((state) => ({ count: state.count - 1 }))
   }
 
+  componentDidMount() {
+    console.log('it mounted')
+    axios.get('http://localhost:8081/contact').then(function (res) {
+      console.log(res.data)
+    })
+  }
+
   getData = () => {
     axios.get('http://localhost:8081/contact').then(function (res) {
       console.log(res.data)
