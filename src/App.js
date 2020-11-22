@@ -4,6 +4,8 @@ import axios from 'axios'
 import Footer from './components/footer/footer'
 import Nav from './components/nav/nav'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import Home from './pages/home'
+import About from './pages/about'
 
 class App extends React.Component {
   state = {
@@ -33,12 +35,13 @@ class App extends React.Component {
   render() {
     return (
       <Router>
+        <Nav />
         <Switch>
           <Route exact path="/about">
-            <Footer />
+            <About />
           </Route>
           <Route path="/">
-            <Nav />
+            <Home />
           </Route>
         </Switch>
         <Footer />
