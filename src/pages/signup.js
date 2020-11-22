@@ -1,46 +1,63 @@
 import React from 'react'
 
 class Signup extends React.Component {
-  submit(event) {
-    event.preventDefault()
-    console.log('submit')
+  constructor(props) {
+    super(props)
+    this.state = { firstName: '', lastName: '' }
+
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
+
+  handleChange(event) {
+    const target = event.target
+    console.log(target)
+    console.log(target.name)
+    const name = target.name
+    this.setState({ [name]: event.target.value })
+    console.log(this.state)
+  }
+
+  handleSubmit(event) {
+    alert(
+      'A name was submitted: ' +
+        this.state.firstName +
+        ' ' +
+        this.state.lastName
+    )
+    event.preventDefault()
+  }
+
   render() {
     return (
-      <div className="row">
-        <form className="col s12">
-          <div className="row">
-            <div className="input-field col s6">
-              <input
-                placeholder="Placeholder"
-                id="first_name"
-                type="text"
-                className="validate"
-              />
-              <label htmlFor="first_name">First Name</label>
-            </div>
-            <div className="input-field col s6">
-              <input id="last_name" type="text" className="validate" />
-              <label htmlFor="last_name">Last Name</label>
-            </div>
-          </div>
-          <div className="row">
-            <div className="input-field col s12">
-              <input id="password" type="password" className="validate" />
-              <label htmlFor="password">Password</label>
-            </div>
-          </div>
-          <button
-            className="btn waves-effect waves-light"
-            type="submit"
-            name="action"
-            onClick={this.submit}
-          >
-            Submit
-            <i className="material-icons right">send</i>
-          </button>
-        </form>
-      </div>
+      <form onSubmit={this.handleSubmit}>
+        <label>
+          Name:
+          <input
+            type="text"
+            name="firstName"
+            value={this.state.firstName}
+            onChange={this.handleChange}
+          />
+        </label>
+        <label>
+          another:
+          <input
+            type="text"
+            name="lastName"
+            value={this.state.lastName}
+            onChange={this.handleChange}
+          />
+        </label>
+        <button
+          className="btn waves-effect waves-light"
+          type="submit"
+          name="action"
+        >
+          Submit
+          <i className="material-icons right">send</i>
+        </button>
+      </form>
     )
   }
 }
