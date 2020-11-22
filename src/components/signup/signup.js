@@ -5,7 +5,7 @@ class Signup extends React.Component {
     return (
       <div>
         <div>hi</div>
-        <img alt="me" src={'src/images/jasonschmitt.jpeg'} />
+        <img alt="me" src={'assets/images/jasonschmitt.jpeg'} />
       </div>
     )
   }
