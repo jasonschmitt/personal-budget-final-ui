@@ -46,7 +46,7 @@ class Signup extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
-          Name:
+          First Name:
           <input
             type="text"
             name="firstName"
@@ -55,7 +55,7 @@ class Signup extends React.Component {
           />
         </label>
         <label>
-          another:
+          Last Name:
           <input
             type="text"
             name="lastName"
