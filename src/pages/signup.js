@@ -1,4 +1,5 @@
 import React from 'react'
+import axios from 'axios'
 
 class Signup extends React.Component {
   constructor(props) {
@@ -26,6 +27,19 @@ class Signup extends React.Component {
         this.state.lastName
     )
     event.preventDefault()
+
+    const dataObj = {
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
+    }
+    axios
+      .post('http://localhost:8081/contact', dataObj)
+      .then(function (response) {
+        console.log(response)
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
   }
 
   render() {
