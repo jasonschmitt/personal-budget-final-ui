@@ -4,7 +4,7 @@ import axios from 'axios'
 class Signup extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { firstName: '', lastName: '' }
+    this.state = { firstName: '', password: '' }
 
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -24,13 +24,13 @@ class Signup extends React.Component {
       'A name was submitted: ' +
         this.state.firstName +
         ' ' +
-        this.state.lastName
+        this.state.password
     )
     event.preventDefault()
 
     const dataObj = {
       firstName: this.state.firstName,
-      lastName: this.state.lastName,
+      password: this.state.password,
     }
     axios
       .post('http://localhost:8081/contact', dataObj)
@@ -55,11 +55,11 @@ class Signup extends React.Component {
           />
         </label>
         <label>
-          Last Name:
+          Password:
           <input
-            type="text"
-            name="lastName"
-            value={this.state.lastName}
+            type="password"
+            name="password"
+            value={this.state.password}
             onChange={this.handleChange}
           />
         </label>
