@@ -2,6 +2,9 @@ import React from 'react'
 import { hot } from 'react-hot-loader'
 import axios from 'axios'
 import Login from './components/login/login'
+import Footer from './components/footer/footer'
+import Nav from './components/nav/nav'
+import Signup from './components/signup/signup'
 
 class App extends React.Component {
   state = {
@@ -24,7 +27,11 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <Nav />
+        <Signup />
+        <i className="large material-icons">account_balance_wallet</i>
         <Login />
+        <Footer />
       </div>
     )
   }
