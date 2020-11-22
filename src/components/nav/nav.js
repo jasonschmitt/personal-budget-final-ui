@@ -4,7 +4,7 @@ import React from 'react'
 class Nav extends React.Component {
   componentDidMount() {
     console.log('loaded')
-    const $ = window.jquery
+    const $ = window.jQuery
     $(document).ready(function () {
       $('.sidenav').sidenav()
     })
