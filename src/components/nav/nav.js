@@ -1,5 +1,6 @@
 import React from 'react'
 // import logo from '../../images/jasonschmitt.jpeg'
+import { Link } from 'react-router-dom'
 
 class Nav extends React.Component {
   componentDidMount() {
@@ -23,13 +24,13 @@ class Nav extends React.Component {
             </a>
             <ul className="right hide-on-med-and-down">
               <li>
-                <a href="/login">Login</a>
+                <Link to="/login">Login</Link>
               </li>
               <li>
-                <a href="/dashboard">Dashboard</a>
+                <Link to="/dashboard">Dashboard</Link>
               </li>
               <li>
-                <a href="/signup">Sign Up</a>
+                <Link to="/about">About</Link>
               </li>
             </ul>
           </div>
