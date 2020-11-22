@@ -1,6 +1,10 @@
 import React from 'react'
 
 class Signup extends React.Component {
+  submit(event) {
+    event.preventDefault()
+    console.log('submit')
+  }
   render() {
     return (
       <div className="row">
@@ -26,6 +30,15 @@ class Signup extends React.Component {
               <label htmlFor="password">Password</label>
             </div>
           </div>
+          <button
+            className="btn waves-effect waves-light"
+            type="submit"
+            name="action"
+            onClick={this.submit}
+          >
+            Submit
+            <i className="material-icons right">send</i>
+          </button>
         </form>
       </div>
     )
