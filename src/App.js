@@ -6,6 +6,7 @@ import Nav from './components/nav/nav'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Home from './pages/home'
 import About from './pages/about'
+import Signup from './pages/signup'
 
 class App extends React.Component {
   state = {
@@ -39,6 +40,9 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/about">
             <About />
+          </Route>
+          <Route exact path="/signup">
+            <Signup />
           </Route>
           <Route path="/">
             <Home />

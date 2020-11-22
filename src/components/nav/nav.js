@@ -24,6 +24,9 @@ class Nav extends React.Component {
             </a>
             <ul className="right hide-on-med-and-down">
               <li>
+                <Link to="/signup">Sign up</Link>
+              </li>
+              <li>
                 <Link to="/login">Login</Link>
               </li>
               <li>
