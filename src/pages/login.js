@@ -33,7 +33,10 @@ class Login extends React.Component {
       .post('http://localhost:8081/login', dataObj)
       .then(function (response) {
         console.log(response.data)
+        console.log(response)
         localStorage.setItem('token', response.data.token)
+        console.log(typeof response.data._id)
+        localStorage.setItem('_id', response.data._id)
         // window.location.href = '/dashboard'
       })
       .catch(function (error) {
