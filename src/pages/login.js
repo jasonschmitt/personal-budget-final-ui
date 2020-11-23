@@ -20,10 +20,10 @@ class Login extends React.Component {
   }
 
   handleSubmit(event) {
+    event.preventDefault()
     alert(
       'A name was submitted: ' + this.state.email + ' ' + this.state.password
     )
-    event.preventDefault()
 
     const dataObj = {
       email: this.state.email,
@@ -34,6 +34,7 @@ class Login extends React.Component {
       .then(function (response) {
         console.log(response)
         localStorage.setItem('token', response.data.token)
+        window.location.href = '/dashboard'
       })
       .catch(function (error) {
         console.log(error)

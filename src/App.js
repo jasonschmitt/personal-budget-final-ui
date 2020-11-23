@@ -8,6 +8,7 @@ import Home from './pages/home'
 import Signup from './pages/signup'
 import Login from './pages/login'
 import Dashboard from './pages/dashboard'
+import Logout from './pages/logout'
 import ProtectedRoute from './ProtectedRoute'
 
 class App extends React.Component {
@@ -58,6 +59,13 @@ class App extends React.Component {
           <Route exact path="/login">
             <Login />
           </Route>
+          <ProtectedRoute
+            exact={true}
+            path="/logout"
+            redirectLink="/login"
+            isLoggedIn={this.state.isLoggedIn}
+            component={Logout}
+          />
           <Route path="/">
             <Home />
           </Route>
