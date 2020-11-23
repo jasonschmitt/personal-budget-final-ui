@@ -33,6 +33,7 @@ class Login extends React.Component {
       .post('http://localhost:8081/login', dataObj)
       .then(function (response) {
         console.log(response)
+        localStorage.setItem('token', response.data.token)
       })
       .catch(function (error) {
         console.log(error)
