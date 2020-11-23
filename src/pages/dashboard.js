@@ -2,7 +2,9 @@ import React from 'react'
 
 class Dashboard extends React.Component {
   render() {
-    return <div>dashboard page</div>
+    // console.log(this.props)
+    const { user } = this.props
+    return <div>dashboard page for {user}</div>
   }
 }
 

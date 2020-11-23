@@ -12,7 +12,8 @@ class Nav extends React.Component {
   }
 
   render() {
-    console.log(this.props.isLoggedIn)
+    // console.log(this.props.isLoggedIn)
+    console.log(this.props)
     const isLoggedIn = this.props.isLoggedIn
     return (
       <div>
@@ -33,6 +34,9 @@ class Nav extends React.Component {
                 <ul className="right hide-on-med-and-down">
                   <li>
                     <Link to="/dashboard">Dashboard</Link>
+                  </li>
+                  <li>
+                    <Link to="/account">Account</Link>
                   </li>
                   <li>
                     <Link to="/logout">Logout</Link>

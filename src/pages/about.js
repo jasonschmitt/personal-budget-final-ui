@@ -5,7 +5,7 @@ class About extends React.Component {
     const token = localStorage.getItem('token')
     console.log(token)
     if (!token) {
-      console.log('redirect this user has no token')
+      console.log('redirect this user has no')
     }
   }
   render() {

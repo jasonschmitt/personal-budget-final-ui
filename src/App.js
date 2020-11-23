@@ -8,6 +8,7 @@ import Home from './pages/home'
 import Signup from './pages/signup'
 import Login from './pages/login'
 import Dashboard from './pages/dashboard'
+import Account from './pages/account'
 import Logout from './pages/logout'
 import ProtectedRoute from './ProtectedRoute'
 
@@ -15,6 +16,7 @@ class App extends React.Component {
   state = {
     count: 0,
     isLoggedIn: false,
+    user: 'bill',
   }
   increment = () => {
     return this.setState((state) => ({ count: state.count + 1 }))
@@ -42,6 +44,7 @@ class App extends React.Component {
   }
 
   render() {
+    console.log(this.state.user)
     return (
       <Router>
         <Nav isLoggedIn={this.state.isLoggedIn} />
@@ -50,6 +53,7 @@ class App extends React.Component {
             exact={true}
             path="/dashboard"
             redirectLink="/login"
+            user={this.state.user}
             isLoggedIn={this.state.isLoggedIn}
             component={Dashboard}
           />
@@ -59,6 +63,13 @@ class App extends React.Component {
           <Route exact path="/login">
             <Login />
           </Route>
+          <ProtectedRoute
+            exact={true}
+            path="/account"
+            redirectLink="/login"
+            isLoggedIn={this.state.isLoggedIn}
+            component={Account}
+          />
           <ProtectedRoute
             exact={true}
             path="/logout"

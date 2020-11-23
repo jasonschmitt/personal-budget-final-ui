@@ -32,9 +32,9 @@ class Login extends React.Component {
     axios
       .post('http://localhost:8081/login', dataObj)
       .then(function (response) {
-        console.log(response)
+        console.log(response.data)
         localStorage.setItem('token', response.data.token)
-        window.location.href = '/dashboard'
+        // window.location.href = '/dashboard'
       })
       .catch(function (error) {
         console.log(error)
