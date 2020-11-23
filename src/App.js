@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Home from './pages/home'
 import About from './pages/about'
 import Signup from './pages/signup'
+import Login from './pages/login'
 
 class App extends React.Component {
   state = {
@@ -22,9 +23,9 @@ class App extends React.Component {
 
   componentDidMount() {
     console.log('it mounted')
-    axios.get('http://localhost:8081/contact').then(function (res) {
-      console.log(res.data)
-    })
+    // axios.get('http://localhost:8081/contact').then(function (res) {
+    //   console.log(res.data)
+    // })
   }
 
   getData = () => {
@@ -43,6 +44,9 @@ class App extends React.Component {
           </Route>
           <Route exact path="/signup">
             <Signup />
+          </Route>
+          <Route exact path="/login">
+            <Login />
           </Route>
           <Route path="/">
             <Home />

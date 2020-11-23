@@ -1,10 +1,10 @@
 import React from 'react'
 import axios from 'axios'
 
-class Signup extends React.Component {
+class Login extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { firstName: '', password: '', email: '' }
+    this.state = { email: '', password: '' }
 
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -21,20 +21,16 @@ class Signup extends React.Component {
 
   handleSubmit(event) {
     alert(
-      'A name was submitted: ' +
-        this.state.firstName +
-        ' ' +
-        this.state.password
+      'A name was submitted: ' + this.state.email + ' ' + this.state.password
     )
     event.preventDefault()
 
     const dataObj = {
-      firstName: this.state.firstName,
       email: this.state.email,
       password: this.state.password,
     }
     axios
-      .post('http://localhost:8081/auth/register', dataObj)
+      .post('http://localhost:8081/login', dataObj)
       .then(function (response) {
         console.log(response)
       })
@@ -46,15 +42,6 @@ class Signup extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <label>
-          First Name:
-          <input
-            type="text"
-            name="firstName"
-            value={this.state.firstName}
-            onChange={this.handleChange}
-          />
-        </label>
         <label>
           Email:
           <input
@@ -86,4 +73,4 @@ class Signup extends React.Component {
   }
 }
 
-export default Signup
+export default Login
