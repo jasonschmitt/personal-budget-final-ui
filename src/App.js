@@ -5,13 +5,15 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Footer from './components/footer/footer'
 import Nav from './components/nav/nav'
 import Home from './pages/home'
-import About from './pages/about'
 import Signup from './pages/signup'
 import Login from './pages/login'
+import Dashboard from './pages/dashboard'
+import ProtectedRoute from './ProtectedRoute'
 
 class App extends React.Component {
   state = {
     count: 0,
+    isLoggedIn: false,
   }
   increment = () => {
     return this.setState((state) => ({ count: state.count + 1 }))
@@ -26,6 +28,10 @@ class App extends React.Component {
     // axios.get('http://localhost:8081/contact').then(function (res) {
     //   console.log(res.data)
     // })
+    const isAuthenticated = localStorage.getItem('token')
+    if (isAuthenticated) {
+      this.setState({ isLoggedIn: true })
+    }
   }
 
   getData = () => {
@@ -37,11 +43,15 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-        <Nav />
+        <Nav isLoggedIn={this.state.isLoggedIn} />
         <Switch>
-          <Route exact path="/about">
-            <About />
-          </Route>
+          <ProtectedRoute
+            exact={true}
+            path="/dashboard"
+            redirectLink="/login"
+            isLoggedIn={this.state.isLoggedIn}
+            component={Dashboard}
+          />
           <Route exact path="/signup">
             <Signup />
           </Route>
