@@ -37,7 +37,7 @@ class Login extends React.Component {
         localStorage.setItem('token', response.data.token)
         console.log(typeof response.data._id)
         localStorage.setItem('_id', response.data._id)
-        // window.location.href = '/dashboard'
+        window.location.href = '/dashboard'
       })
       .catch(function (error) {
         console.log(error)
@@ -45,6 +45,10 @@ class Login extends React.Component {
   }
 
   render() {
+    const isLoggedIn = this.props.isLoggedIn
+    if (isLoggedIn) {
+      window.location.href = '/dashboard'
+    }
     return (
       <form onSubmit={this.handleSubmit}>
         <label>

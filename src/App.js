@@ -37,25 +37,21 @@ class App extends React.Component {
   checkLoggedInStatus() {
     const isAuthenticated = localStorage.getItem('token')
     if (isAuthenticated) {
-      console.log('setting isLoggedIn to true')
       this.setState({ isLoggedIn: true })
-      // console.log(this.state)
       const token = localStorage.getItem('token')
-      let user_id = localStorage.getItem('_id')
+      const user_id = localStorage.getItem('_id')
+
       const headers = {
         'Content-Type': 'application/x-www-form-urlencoded',
         Authorization: `JWT ${token}`,
       }
 
-      console.log(`typeof ${typeof user_id}`)
-      console.log(`http://localhost:8081/user/${user_id}`)
       axios
         .get(`http://localhost:8081/user/${user_id}`, {
           headers: headers,
         })
         .then((response) => {
           // console.log(response.data)
-          // setState user to response back from api to get data about the user to use in other components
           this.setState({ user: response.data })
         })
         .catch(function (error) {
@@ -71,7 +67,7 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-        <button onClick={this.getData}>get it</button>
+        <button onClick={this.getData}>get the state</button>
         {this.state.isLoggedIn ? (
           <div>is logged in: true</div>
         ) : (
@@ -91,7 +87,7 @@ class App extends React.Component {
             <Signup />
           </Route>
           <Route exact path="/login">
-            <Login />
+            <Login isLoggedIn={this.state.isLoggedIn} />
           </Route>
           <ProtectedRoute
             exact={true}

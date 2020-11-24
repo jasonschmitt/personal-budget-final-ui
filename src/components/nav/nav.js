@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 
 class Nav extends React.Component {
   componentDidMount() {
-    console.log('loaded')
     const $ = window.jQuery
     $(document).ready(function () {
       $('.sidenav').sidenav()
@@ -12,8 +11,7 @@ class Nav extends React.Component {
   }
 
   render() {
-    // console.log(this.props.isLoggedIn)
-    console.log(this.props)
+    // console.log(this.props)
     const isLoggedIn = this.props.isLoggedIn
     return (
       <div>
