@@ -5,6 +5,10 @@ const baseConfig = require('./webpack.config.base')
 
 module.exports = merge(baseConfig, {
   mode: 'production',
+  devServer: {
+    inline: true,
+    port: process.env.PORT || 8080,
+  },
   plugins: [
     new BundleAnalyzerPlugin({
       analyzerMode: 'static',
