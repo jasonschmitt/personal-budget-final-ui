@@ -4,13 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm run build",
+    "start": "serve -s build",
     "build": "webpack --config webpack.config.prod.js",
     "dev": "webpack serve --config webpack.config.dev.js",
     "dev:hot": "npm run dev -- --hot",
     "test": "jest",
     "format": "pretty-quick",
-    "lint": "eslint ./"
+    "lint": "eslint ./",
+    "heroku-postbuild": "npm run build"
   },
   "husky": {
     "hooks": {
@@ -64,6 +65,7 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-hot-loader": "^4.13.0",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "serve": "^11.3.2"
   }
 }
