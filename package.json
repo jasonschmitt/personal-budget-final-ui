@@ -10,7 +10,8 @@
     "dev:hot": "npm run dev -- --hot",
     "test": "jest",
     "format": "pretty-quick",
-    "lint": "eslint ./"
+    "lint": "eslint ./",
+    "heroku-prebuild": "npm install --dev"
   },
   "husky": {
     "hooks": {
