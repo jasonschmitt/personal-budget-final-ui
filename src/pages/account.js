@@ -6,8 +6,8 @@ class Account extends React.Component {
     super(props)
     this.state = { firstName: '', password: '', email: '' }
 
-    this.handleChange1 = this.handleChange1.bind(this)
-    this.handleSubmit1 = this.handleSubmit1.bind(this)
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   componentDidMount() {
@@ -19,12 +19,12 @@ class Account extends React.Component {
     })
   }
 
-  handleChange1(event) {
+  handleChange(event) {
     console.log(event.target.value)
     this.setState({ firstName: event.target.value })
   }
 
-  handleSubmit1(event) {
+  handleSubmit(event) {
     event.preventDefault()
     alert('A name was submitted: ' + this.state.firstName)
     const dataObj = {
@@ -46,6 +46,7 @@ class Account extends React.Component {
       })
       .then((response) => {
         console.log(response)
+        location.reload()
       })
       .catch(function (error) {
         console.log(error)
@@ -54,13 +55,13 @@ class Account extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit1}>
+      <form onSubmit={this.handleSubmit}>
         <label>
           Name:
           <input
             type="text"
             value={this.state.firstName}
-            onChange={this.handleChange1}
+            onChange={this.handleChange}
           />
         </label>
         <input type="submit" value="Submit" />
