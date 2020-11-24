@@ -94,6 +94,7 @@ class App extends React.Component {
             path="/account"
             redirectLink="/login"
             isLoggedIn={this.state.isLoggedIn}
+            globalState={this.state}
             component={Account}
           />
           <ProtectedRoute
